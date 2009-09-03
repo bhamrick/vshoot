@@ -1,7 +1,7 @@
 CCFLAGS=-I. -O2
 LDFLAGS=-lglut -lGLU -lGL -lXmu -lXext -lXi -lX11 -lm -O2
 
-OBJECTS=test.o image.o
+OBJECTS=test.o image.o world.o
 
 all: $(OBJECTS)
 	g++ $(LDFLAGS) $(OBJECTS)

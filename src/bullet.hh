@@ -9,7 +9,7 @@ class bullet {
 	private:
 	protected:
 	public:
-		int w, h, t;
+		int w, h, t, r;
 		GLuint tex;
 		virtual int getX(int) = 0;
 		virtual int getY(int) = 0;

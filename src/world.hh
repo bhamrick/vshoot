@@ -27,8 +27,8 @@ class world {
 		void start();
 		void update();
 		void draw();
-		void keyboardHandler(int);
-		void keyboardUpHandler(int);
+		void keyboardHandler(unsigned char);
+		void keyboardUpHandler(unsigned char);
 		void specialHandler(int);
 		void specialUpHandler(int);
 };

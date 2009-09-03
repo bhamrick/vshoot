@@ -20,26 +20,26 @@ void testPlayer::update(int nt) {
 	t = nt;
 }
 
-void testPlayer::keyboardHandler(int key) {
+void testPlayer::keyboardHandler(unsigned char key) {
 	
 }
 
-void testPlayer::keyboardUpHandler(int key) {
+void testPlayer::keyboardUpHandler(unsigned char key) {
 	
 }
 
 void testPlayer::specialHandler(int key) {
 	if(key == GLUT_KEY_LEFT) {
-		dx -= 1;
+		dx -= 5;
 	} else if(key == GLUT_KEY_RIGHT) {
-		dx += 1;
+		dx += 5;
 	}
 }
 
 void testPlayer::specialUpHandler(int key) {
 	if(key == GLUT_KEY_LEFT) {
-		dx += 1;
+		dx += 5;
 	} else if(key == GLUT_KEY_RIGHT) {
-		dx -= 1;
+		dx -= 5;
 	}
 }

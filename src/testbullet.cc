@@ -2,13 +2,13 @@
 
 testBullet::testBullet() {
 	tex = loadImage("bullet");
-	w = 16; h = 16; t = 0; r = 8;
+	w = 32; h = 64; t = 0; r = 14;
 }
 
 int testBullet::getX(int wt) {
-	return 150 + 30*sin((wt-t)/10.);
+	return 150;
 }
 
 int testBullet::getY(int wt) {
-	return 2*(wt-t);
+	return 8*(wt-t);
 }

@@ -38,6 +38,14 @@ void world::update() {
 	for(int i = 0; i<players.size(); i++) {
 		players[i]->update(t);
 	}
+	for(int i = 0; i<players.size(); i++) {
+		for(int j = 0; j<bullets.size(); j++) {
+			int dx = players[i]->getX() - bullets[j]->getX(t), dy = players[i]->getY() - bullets[j]->getY(t), r = players[i]->r + bullets[j]->r;
+			if(dx*dx + dy*dy < r*r) {
+				printf("Collision\n");
+			}
+		}
+	}
 }
 
 void world::draw() {
@@ -76,13 +84,13 @@ void world::draw() {
 	glFlush();
 }
 
-void world::keyboardHandler(int key) {
+void world::keyboardHandler(unsigned char key) {
 	for(int i = 0; i<players.size(); i++) {
 		players[i]->keyboardHandler(key);
 	}
 }
 
-void world::keyboardUpHandler(int key) {
+void world::keyboardUpHandler(unsigned char key) {
 	for(int i = 0; i<players.size(); i++) {
 		players[i]->keyboardUpHandler(key);
 	}

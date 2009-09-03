@@ -14,8 +14,8 @@ class player {
 		int getX();
 		int getY();
 		virtual void update(int)=0;
-		virtual void keyboardHandler(int)=0;
-		virtual void keyboardUpHandler(int)=0;
+		virtual void keyboardHandler(unsigned char)=0;
+		virtual void keyboardUpHandler(unsigned char)=0;
 		virtual void specialHandler(int)=0;
 		virtual void specialUpHandler(int)=0;
 };

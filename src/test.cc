@@ -12,12 +12,32 @@ void displayFunc(int value) {
 	glutTimerFunc(16,displayFunc,0);
 }
 
+void keyboardFunc(unsigned char key, int x, int y) {
+	w->keyboardHandler(key);
+}
+
+void specialFunc(int key, int x, int y) {
+	w->specialHandler(key);
+}
+
+void keyboardUpFunc(unsigned char key, int x, int y) {
+	w->keyboardUpHandler(key);
+}
+
+void specialUpFunc(int key, int x, int y) {
+	w->specialUpHandler(key);
+}
+
 int main(int argc, char** argv) {
 	glutInit(&argc,argv);
 	w = new world(300,600,80,(char*)"Test");
-	glutTimerFunc(16,displayFunc,0);
 	w->addBullet(new testBullet());
 	w->addPlayer(new testPlayer(300,600));
 	w->start();
+	glutTimerFunc(16,displayFunc,0);
+	glutKeyboardFunc(keyboardFunc);
+	glutSpecialFunc(specialFunc);
+	glutKeyboardUpFunc(keyboardUpFunc);
+	glutSpecialUpFunc(specialUpFunc);
 	glutMainLoop();
 }

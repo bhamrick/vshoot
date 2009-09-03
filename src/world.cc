@@ -6,6 +6,7 @@ world::world(int tw, int th, int trate, char* name) {
 	rate = trate;
 	started = 0;
 	t = 0;
+	lastspawn = 0;
 	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);
 	glutInitWindowSize(w,h);
 	glutCreateWindow(name);
@@ -35,6 +36,20 @@ void world::start() {
 
 void world::update() {
 	getTime(); //not much to do here yet
+	if(t - lastspawn >= 10) {
+		addBullet(new testBullet(t,w));
+		lastspawn = t;
+	}
+	for(int i = 0; i<bullets.size(); i++) {
+		int x = bullets[i]->getX(t);
+		int y = bullets[i]->getY(t);
+		int bw = bullets[i]->w, bh = bullets[i]->h;
+		if(x < -bw/2 || x > w + bw/2 || y < -bw/2 || y > h+bw/2) {
+			bullets[i] = bullets[bullets.size()-1];
+			bullets.pop_back();
+			i--;
+		}
+	}
 	for(int i = 0; i<players.size(); i++) {
 		players[i]->update(t);
 	}
@@ -42,7 +57,7 @@ void world::update() {
 		for(int j = 0; j<bullets.size(); j++) {
 			int dx = players[i]->getX() - bullets[j]->getX(t), dy = players[i]->getY() - bullets[j]->getY(t), r = players[i]->r + bullets[j]->r;
 			if(dx*dx + dy*dy < r*r) {
-				printf("Collision\n");
+				exit(0);
 			}
 		}
 	}

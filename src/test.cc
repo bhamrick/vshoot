@@ -2,6 +2,7 @@
 #include<testplayer.hh>
 #include<GL/glut.h>
 #include<world.hh>
+#include<cstdlib>
 #include<cstdio>
 
 world *w;
@@ -30,8 +31,8 @@ void specialUpFunc(int key, int x, int y) {
 
 int main(int argc, char** argv) {
 	glutInit(&argc,argv);
+	srand(time(NULL));
 	w = new world(300,600,80,(char*)"Test");
-	w->addBullet(new testBullet());
 	w->addPlayer(new testPlayer(300,600));
 	w->start();
 	glutTimerFunc(16,displayFunc,0);

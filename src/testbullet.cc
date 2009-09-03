@@ -1,14 +1,16 @@
 #include<testbullet.hh>
 
-testBullet::testBullet() {
+testBullet::testBullet(int wt, int ww) {
 	tex = loadImage("bullet");
-	w = 32; h = 64; t = 0; r = 14;
+	w = 32; h = 64; t = wt; r = 7;
+	x = rand() % ww;
+	speed = rand()%7+5;
 }
 
 int testBullet::getX(int wt) {
-	return 150;
+	return x;
 }
 
 int testBullet::getY(int wt) {
-	return 8*(wt-t);
+	return speed*(wt-t);
 }

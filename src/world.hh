@@ -10,10 +10,11 @@
 #include<bullet.hh>
 #include<GL/glut.h>
 #include<sys/time.h>
+#include<testbullet.hh>
 
 class world {
 	private:
-		int w, h, t, rate;
+		int w, h, t, rate, lastspawn;
 		timeval starttime;
 		bool started;
 		std::vector<bullet*> bullets;

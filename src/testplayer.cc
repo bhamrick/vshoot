@@ -30,16 +30,16 @@ void testPlayer::keyboardUpHandler(unsigned char key) {
 
 void testPlayer::specialHandler(int key) {
 	if(key == GLUT_KEY_LEFT) {
-		dx -= 5;
+		dx -= 3;
 	} else if(key == GLUT_KEY_RIGHT) {
-		dx += 5;
+		dx += 3;
 	}
 }
 
 void testPlayer::specialUpHandler(int key) {
 	if(key == GLUT_KEY_LEFT) {
-		dx += 5;
+		dx += 3;
 	} else if(key == GLUT_KEY_RIGHT) {
-		dx -= 5;
+		dx -= 3;
 	}
 }

@@ -32,7 +32,7 @@ void specialUpFunc(int key, int x, int y) {
 int main(int argc, char** argv) {
 	glutInit(&argc,argv);
 	srand(time(NULL));
-	w = new world(300,600,80,(char*)"Test");
+	w = new world(300,600,80,"Test");
 	w->addPlayer(new testPlayer(300,600));
 	w->start();
 	glutTimerFunc(16,displayFunc,0);

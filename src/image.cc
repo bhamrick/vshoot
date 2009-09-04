@@ -1,6 +1,11 @@
 #include<image.hh>
 
+std::map<const char*, GLuint> IMAGE_loaded;
+
 GLuint loadImage(char *name) {
+	if(IMAGE_loaded.count(name) > 0) {
+		return IMAGE_loaded[name];
+	}
 	GLuint retval;
 	glGenTextures(1,&retval);
 	char *file= new char[strlen(name)+12];
@@ -35,5 +40,6 @@ GLuint loadImage(char *name) {
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 	glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,w,h,0,GL_RGBA,GL_UNSIGNED_BYTE,data);
 	delete[] data;
+	IMAGE_loaded[name] = retval;
 	return retval;
 }

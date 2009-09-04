@@ -45,6 +45,7 @@ void world::update() {
 		int y = bullets[i]->getY(t);
 		int bw = bullets[i]->w, bh = bullets[i]->h;
 		if(x < -bw/2 || x > w + bw/2 || y < -bw/2 || y > h+bw/2) {
+			delete bullets[i];
 			bullets[i] = bullets[bullets.size()-1];
 			bullets.pop_back();
 			i--;
